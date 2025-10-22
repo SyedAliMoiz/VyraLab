@@ -1,1 +1,2179 @@
-readme
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turn Struggling Copy Into Conversion Machines | VyraLab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables - Premium Metallic Design System */
+        :root {
+            /* Colors - Liquid Metal Palette */
+            --bg-primary: #0d0d0f;
+            --bg-secondary: #151518;
+            --bg-elevated: #1c1c20;
+            
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8bb;
+            --text-tertiary: #6e6e73;
+            
+            /* Premium metallic accents */
+            --accent: #d4af37;
+            --accent-dim: #b8962e;
+            --accent-bright: #f0c952;
+            --accent-glow: rgba(212, 175, 55, 0.25);
+            
+            /* Secondary accent - platinum */
+            --platinum: #e5e4e2;
+            --platinum-dim: #c0bfbd;
+            --platinum-glow: rgba(229, 228, 226, 0.15);
+            
+            --border: rgba(229, 228, 226, 0.12);
+            --border-focus: rgba(212, 175, 55, 0.5);
+            
+            /* Typography */
+            --font-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-display: 'Inter', -apple-system, sans-serif;
+            
+            /* Spacing scale */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            
+            /* Mobile viewport height */
+            --vh: 1vh;
+            
+            /* Z-index scale */
+            --z-base: 0;
+            --z-elevated: 10;
+            --z-fixed: 100;
+            --z-overlay: 1000;
+            
+            /* Shadows - Enhanced depth */
+            --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
+            --shadow-glow: 0 0 32px var(--accent-glow), 0 0 64px var(--accent-glow);
+            --shadow-platinum: 0 0 24px var(--platinum-glow);
+        }
+
+        /* Reset & Base */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-base);
+            line-height: 1.6;
+            color: var(--text-secondary);
+            background: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Subtle grain texture with warmer tone */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: var(--z-fixed);
+        }
+
+        /* Subtle radial gradient overlay for depth */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(
+                ellipse at top,
+                rgba(212, 175, 55, 0.03) 0%,
+                transparent 50%
+            );
+            pointer-events: none;
+            z-index: var(--z-base);
+        }
+
+        /* Typography Scale */
+        h1, h2, h3 {
+            color: var(--text-primary);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .section {
+            padding: var(--space-2xl) 0;
+            position: relative;
+        }
+
+        /* Glass Card - Premium Liquid Metal Style */
+        .glass-card {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.05) 0%,
+                rgba(255, 255, 255, 0.02) 100%
+            );
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+                0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Metallic sheen overlay */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(229, 228, 226, 0.15) 0%,
+                transparent 30%,
+                transparent 70%,
+                rgba(212, 175, 55, 0.1) 100%
+            );
+            pointer-events: none;
+            opacity: 0.6;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Enhanced hover with liquid metal feel */
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(212, 175, 55, 0.08) 0%,
+                transparent 50%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .glass-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Accent border (premium gold line) */
+        .accent-border::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                var(--accent) 50%,
+                transparent 100%
+            );
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: var(--space-xl) 0;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: var(--z-elevated);
+            width: 100%;
+        }
+
+        .accent-text {
+            color: var(--accent);
+            position: relative;
+            background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Hero headline emphasis */
+        .hero h1 {
+            margin-bottom: var(--space-md);
+            line-height: 1.1;
+        }
+
+        .hero-subheadline {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            color: var(--text-primary);
+            margin: 0 auto var(--space-md);
+            max-width: 700px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .hero-aside {
+            font-style: italic;
+            margin-bottom: var(--space-xl);
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Stats Bar - Supporting element, not competing */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-2xl);
+            padding: var(--space-md);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: var(--font-base);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+            letter-spacing: -0.02em;
+            font-variant-numeric: tabular-nums;
+            background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-tertiary);
+            font-weight: 500;
+        }
+
+        .stat-divider {
+            width: 1px;
+            background: var(--border);
+            align-self: stretch;
+        }
+
+        /* Offer Box - DOMINANT conversion element */
+        .offer-box {
+            padding: var(--space-xl);
+            max-width: 800px;
+            margin: 0 auto var(--space-xl);
+            position: relative;
+            border: 2px solid var(--accent);
+            box-shadow: 
+                0 0 40px var(--accent-glow),
+                0 16px 64px rgba(0, 0, 0, 0.6),
+                inset 0 2px 0 rgba(212, 175, 55, 0.3);
+            background: linear-gradient(
+                135deg,
+                rgba(212, 175, 55, 0.08) 0%,
+                rgba(255, 255, 255, 0.03) 50%,
+                rgba(212, 175, 55, 0.05) 100%
+            );
+            backdrop-filter: blur(24px) saturate(200%);
+            -webkit-backdrop-filter: blur(24px) saturate(200%);
+        }
+
+        .offer-box::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(
+                135deg,
+                var(--accent-bright),
+                var(--accent),
+                var(--platinum),
+                var(--accent)
+            );
+            border-radius: 16px;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(8px);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .offer-box h3 {
+            margin-bottom: var(--space-lg);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--text-primary);
+        }
+
+        .process-steps {
+            display: grid;
+            gap: var(--space-sm);
+            margin: var(--space-md) 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md);
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .step-item:hover {
+            transform: translateX(6px);
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.08),
+                0 4px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .step-number {
+            min-width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-secondary) 100%);
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-base);
+            font-weight: 700;
+            color: var(--accent);
+            flex-shrink: 0;
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Buttons - UNMISTAKABLE primary action */
+        .btn {
+            display: inline-block;
+            padding: 1.25rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-base);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 56px;
+            min-width: 56px;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.02em;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--accent-bright), var(--accent-dim));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent) 50%, var(--accent-dim) 100%);
+            color: var(--bg-primary);
+            box-shadow: 
+                0 8px 24px var(--accent-glow),
+                0 4px 12px rgba(212, 175, 55, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 1rem;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-primary:hover::after {
+            opacity: 1;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 12px 36px var(--accent-glow),
+                0 0 64px var(--accent-glow),
+                0 8px 24px rgba(212, 175, 55, 0.5),
+                inset 0 2px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px) scale(1);
+        }
+
+        .btn-primary:focus {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        /* CTA container with emphasis */
+        .cta-container {
+            text-align: center;
+            margin-top: var(--space-xl);
+            padding: var(--space-md);
+            position: relative;
+        }
+
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(
+                circle,
+                var(--accent-glow) 0%,
+                transparent 70%
+            );
+            opacity: 0.5;
+            pointer-events: none;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        /* Scarcity Widget - AUTHENTIC urgency style */
+        .scarcity {
+            margin: var(--space-md) 0;
+            padding: var(--space-md);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.03) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            box-shadow: 
+                inset 0 1px 0 rgba(212, 175, 55, 0.2),
+                0 4px 16px rgba(212, 175, 55, 0.1);
+        }
+
+        .scarcity-label {
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--accent-bright);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .scarcity-text {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .scarcity-text strong {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Testimonials - Enhanced credibility */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .testimonial {
+            padding: var(--space-lg);
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            margin-bottom: var(--space-md);
+            color: var(--text-primary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .testimonial-info {
+            flex: 1;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-base);
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: var(--platinum);
+            flex-shrink: 0;
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 4px 12px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Realistic avatar with gradient mesh */
+        .testimonial-avatar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            margin-bottom: 0.125rem;
+        }
+
+        .testimonial-title {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-result {
+            font-family: var(--font-base);
+            font-size: 0.8125rem;
+            color: var(--accent);
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Feature Steps */
+        .steps {
+            display: grid;
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: var(--space-lg);
+            align-items: start;
+            padding: var(--space-lg);
+        }
+
+        .step-badge {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-secondary) 100%);
+            border: 3px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-base);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            position: relative;
+            flex-shrink: 0;
+            box-shadow: 
+                inset 0 2px 0 rgba(255, 255, 255, 0.1),
+                0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .step-badge::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            opacity: 0;
+            filter: blur(12px);
+            transition: opacity 0.4s ease;
+        }
+
+        .step:hover .step-badge::before {
+            opacity: 1;
+        }
+
+        .step h3 {
+            margin-bottom: var(--space-sm);
+        }
+
+        .step ul {
+            list-style: none;
+            display: grid;
+            gap: var(--space-xs);
+        }
+
+        .step li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .step li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .feature {
+            padding: var(--space-lg);
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto var(--space-md);
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-secondary) 100%);
+            border: 3px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            position: relative;
+            box-shadow: 
+                inset 0 2px 0 rgba(255, 255, 255, 0.1),
+                0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            opacity: 0;
+            filter: blur(12px);
+            transition: opacity 0.4s ease;
+        }
+
+        .feature:hover .feature-icon::before {
+            opacity: 1;
+        }
+
+        .feature h4 {
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        /* Comparison Grid */
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .comparison-card {
+            padding: var(--space-lg);
+        }
+
+        .comparison-card h4 {
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            display: grid;
+            gap: var(--space-sm);
+        }
+
+        .comparison-card li {
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .comparison-card li::before {
+            content: '×';
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            color: var(--text-tertiary);
+        }
+
+        .comparison-card.winner {
+            border: 2px solid var(--accent);
+            box-shadow: 
+                var(--shadow-glow),
+                inset 0 1px 0 rgba(212, 175, 55, 0.2);
+        }
+
+        .comparison-card.winner li::before {
+            content: '✓';
+            color: var(--accent);
+        }
+
+        .winner-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent) 100%);
+            color: var(--bg-primary);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: var(--space-sm);
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        /* Before/After Example Cards */
+        .proof-example {
+            margin: var(--space-lg) 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-label {
+            text-align: center;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--text-secondary);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .before-example,
+        .after-example {
+            padding: var(--space-lg);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .before-example {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(220, 38, 38, 0.05) 100%);
+            border: 2px solid rgba(239, 68, 68, 0.3);
+            box-shadow: 
+                inset 0 1px 0 rgba(239, 68, 68, 0.15),
+                0 4px 16px rgba(239, 68, 68, 0.1);
+        }
+
+        .after-example {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 2px solid var(--accent);
+            box-shadow: 
+                inset 0 1px 0 rgba(212, 175, 55, 0.2),
+                0 4px 16px var(--accent-glow);
+        }
+
+        .example-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .before-example .example-badge {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .after-example .example-badge {
+            background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent) 100%);
+            color: var(--bg-primary);
+            box-shadow: 0 2px 8px var(--accent-glow);
+        }
+
+        .example-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .example-metrics {
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .metric-item {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .before-example .metric-value {
+            color: #ef4444;
+        }
+
+        .after-example .metric-value {
+            color: var(--accent);
+        }
+
+        /* Email Form - Premium input styling */
+        .form {
+            max-width: 600px;
+            margin: var(--space-xl) auto;
+            display: grid;
+            gap: var(--space-md);
+        }
+
+        .form-input {
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: var(--font-base);
+            transition: all 0.3s ease;
+            min-height: 48px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+            box-shadow: 
+                var(--shadow-glow),
+                inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FAQ */
+        .faq {
+            max-width: 800px;
+            margin: var(--space-xl) auto 0;
+            display: grid;
+            gap: var(--space-md);
+        }
+
+        .faq-item {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: var(--space-md);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-md);
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: var(--font-base);
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: color 0.2s ease;
+            min-height: 48px;
+        }
+
+        .faq-question:hover,
+        .faq-question:focus {
+            color: var(--accent);
+        }
+
+        .faq-question:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: -2px;
+        }
+
+        .faq-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-secondary) 100%);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-toggle::before,
+        .faq-toggle::after {
+            content: '';
+            position: absolute;
+            background: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .faq-toggle::before {
+            width: 16px;
+            height: 2px;
+        }
+
+        .faq-toggle::after {
+            width: 2px;
+            height: 16px;
+        }
+
+        .faq-item.active .faq-toggle {
+            border-color: var(--accent);
+            transform: rotate(45deg);
+            box-shadow: 0 0 16px var(--accent-glow);
+        }
+
+        .faq-item.active .faq-toggle::before,
+        .faq-item.active .faq-toggle::after {
+            background: var(--accent);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 var(--space-md) var(--space-md);
+        }
+
+        /* Upgrade Box */
+        .upgrade-box {
+            max-width: 800px;
+            margin: var(--space-xl) auto;
+            padding: var(--space-xl);
+            position: relative;
+        }
+
+        .upgrade-badge {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent) 100%);
+            color: var(--bg-primary);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        .price-tag {
+            text-align: center;
+            margin: var(--space-lg) 0;
+        }
+
+        .price {
+            font-family: var(--font-base);
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-tertiary);
+            margin-bottom: var(--space-xs);
+            font-weight: 500;
+        }
+
+        .price-strike {
+            font-size: 1rem;
+            color: var(--text-tertiary);
+            text-decoration: line-through;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: var(--space-xl);
+            color: var(--text-tertiary);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Mobile Optimization - Mobile-First Approach */
+        @media (max-width: 768px) {
+            /* Typography scaling for mobile */
+            h1 {
+                font-size: clamp(1.75rem, 8vw, 2.5rem);
+                line-height: 1.15;
+            }
+
+            h2 {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+            }
+
+            h3 {
+                font-size: clamp(1.125rem, 5vw, 1.5rem);
+            }
+
+            .hero-subheadline {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            /* Enhanced touch targets */
+            .btn {
+                min-height: 56px;
+                padding: 1.25rem 2rem;
+                font-size: 1.0625rem;
+            }
+
+            .btn-primary {
+                width: 100%;
+                padding: 1.5rem 2rem;
+                font-size: 1.125rem;
+            }
+
+            /* Simplified hero spacing */
+            .hero {
+                min-height: auto;
+                padding: var(--space-lg) 0;
+            }
+
+            .hero-aside {
+                font-size: 0.875rem;
+                margin-bottom: var(--space-lg);
+            }
+
+            /* Stats - stacked and simplified */
+            .stats {
+                flex-direction: column;
+                gap: var(--space-md);
+                margin-bottom: var(--space-xl);
+                padding: var(--space-md);
+            }
+
+            .stat {
+                text-align: center;
+                padding: var(--space-sm) 0;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .stat-divider {
+                display: none;
+            }
+
+            /* Offer box - full bleed on mobile */
+            .offer-box {
+                padding: var(--space-lg);
+                margin-left: calc(-1 * var(--space-md));
+                margin-right: calc(-1 * var(--space-md));
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+
+            .offer-box h3 {
+                font-size: 1.5rem;
+            }
+
+            /* Process steps - larger touch targets */
+            .step-item {
+                padding: var(--space-md);
+                font-size: 1rem;
+            }
+
+            .step-number {
+                min-width: 48px;
+                height: 48px;
+                font-size: 1.125rem;
+            }
+
+            /* CTA container - full width */
+            .cta-container {
+                margin-top: var(--space-lg);
+                padding: var(--space-md) 0;
+            }
+
+            /* Scarcity - simplified */
+            .scarcity {
+                padding: var(--space-md);
+                margin: var(--space-md) 0;
+            }
+
+            .scarcity-text {
+                font-size: 0.9375rem;
+            }
+
+            /* Testimonials - single column */
+            .testimonials {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+                margin-top: var(--space-xl);
+            }
+
+            .testimonial {
+                padding: var(--space-md);
+            }
+
+            .testimonial-quote {
+                font-size: 0.9375rem;
+            }
+
+            .testimonial-avatar {
+                width: 56px;
+                height: 56px;
+            }
+
+            /* Steps - single column, centered */
+            .step {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: var(--space-md);
+                padding: var(--space-md);
+            }
+
+            .step-badge {
+                margin: 0 auto var(--space-md);
+            }
+
+            .step ul {
+                text-align: left;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            /* Features - single column */
+            .features {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+
+            .feature {
+                padding: var(--space-md);
+            }
+
+            /* Comparison - single column */
+            .comparison {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+
+            .comparison-card {
+                padding: var(--space-md);
+            }
+
+            /* Before/After examples - stacked */
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+
+            .before-example,
+            .after-example {
+                padding: var(--space-md);
+            }
+
+            .example-text {
+                font-size: 0.9375rem;
+            }
+
+            .example-metrics {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+
+            .metric-item {
+                min-width: 100%;
+            }
+
+            /* Form - full width */
+            .form {
+                padding: 0 var(--space-md);
+            }
+
+            .form-input {
+                font-size: 1rem;
+                padding: 1.125rem;
+            }
+
+            /* FAQ - larger touch targets */
+            .faq {
+                padding: 0 var(--space-md);
+            }
+
+            .faq-question {
+                padding: var(--space-md);
+                font-size: 0.9375rem;
+            }
+
+            .faq-toggle {
+                width: 48px;
+                height: 48px;
+            }
+
+            .faq-answer-content {
+                padding: 0 var(--space-md) var(--space-md);
+                font-size: 0.9375rem;
+            }
+
+            /* Upgrade box */
+            .upgrade-box {
+                padding: var(--space-lg);
+                margin-left: calc(-1 * var(--space-md));
+                margin-right: calc(-1 * var(--space-md));
+                border-radius: 0;
+            }
+
+            .upgrade-badge {
+                position: static;
+                display: inline-block;
+                margin-bottom: var(--space-md);
+            }
+
+            .price {
+                font-size: 3rem;
+            }
+
+            .price-tag {
+                margin: var(--space-md) 0;
+            }
+
+            /* Section padding adjustment */
+            .section {
+                padding: var(--space-xl) 0;
+            }
+
+            /* Container padding for mobile */
+            .container {
+                padding: 0 var(--space-md);
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 375px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .stat-value {
+                font-size: 1.75rem;
+            }
+
+            .offer-box h3 {
+                font-size: 1.25rem;
+            }
+
+            .btn-primary {
+                font-size: 1rem;
+                padding: 1.25rem 1.5rem;
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Tablet optimization */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                padding: 0 var(--space-lg);
+            }
+
+            .offer-box {
+                max-width: 700px;
+            }
+
+            .stats {
+                gap: var(--space-lg);
+            }
+
+            .testimonials {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .comparison {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            /* Larger touch targets on touch devices */
+            .btn {
+                min-height: 56px;
+                min-width: 56px;
+            }
+
+            .faq-question {
+                min-height: 56px;
+            }
+
+            .faq-toggle {
+                width: 48px;
+                height: 48px;
+            }
+
+            .step-number {
+                min-width: 48px;
+                height: 48px;
+            }
+
+            /* Remove hover effects on touch */
+            .glass-card:hover::before {
+                opacity: 0.6;
+            }
+
+            .glass-card:hover::after {
+                opacity: 0;
+            }
+
+            /* Simplify button hover for touch */
+            .btn-primary:hover {
+                transform: none;
+            }
+
+            .btn-primary:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+
+            /* Better tap feedback */
+            .step-item:active {
+                transform: scale(0.98);
+                background: rgba(0, 0, 0, 0.7);
+            }
+
+            .glass-card:active {
+                transform: scale(0.99);
+            }
+        }
+
+        /* Thumb zone optimization for mobile */
+        @media (max-width: 768px) {
+            /* Primary actions in thumb reach zone (bottom 1/3 of screen) */
+            .cta-container {
+                position: sticky;
+                bottom: 0;
+                background: linear-gradient(
+                    to top,
+                    var(--bg-primary) 70%,
+                    transparent 100%
+                );
+                padding: var(--space-md);
+                margin: 0 calc(-1 * var(--space-md));
+                z-index: var(--z-elevated);
+            }
+
+            .cta-container .btn-primary {
+                box-shadow: 
+                    0 8px 32px var(--accent-glow),
+                    0 4px 16px rgba(212, 175, 55, 0.5),
+                    inset 0 2px 0 rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        /* Accessibility: Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* High Contrast Mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --accent: #f0c952;
+                --border: rgba(255, 255, 255, 0.3);
+            }
+
+            .glass-card {
+                background: var(--bg-secondary);
+                border-width: 2px;
+            }
+        }
+
+        /* Focus visible for keyboard navigation */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Loading state utility */
+        .loading {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <!-- STEP 1: Problem/Transformation (Clear, direct) -->
+                <h1>Turn Struggling Copy Into <span class="accent-text">Conversion Machines</span> in 5 Minutes</h1>
+                <p class="hero-subheadline">
+                    Stop guessing what's broken. Get instant line-by-line analysis that shows you exactly which sentences kill conversions—and how to fix them.
+                </p>
+
+                <!-- STEP 2: Solution (The dominant offer box) -->
+                <div class="offer-box glass-card accent-border">
+                    <h3>Get Your Free Copy Critique System</h3>
+
+                    <div class="process-steps">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div>Paste your copy</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div>Get instant line-by-line persuasion analysis</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div>See exactly which sentences kill conversions</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div>Fix the gaps and watch your revenue grow</div>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: var(--space-md); text-align: center; color: var(--text-primary); font-weight: 500;">
+                        <strong style="color: var(--accent);">Includes:</strong> Custom GPT + Video walkthrough showing real examples
+                    </p>
+
+                    <div class="scarcity">
+                        <div class="scarcity-label">Limited Onboarding</div>
+                        <p class="scarcity-text">
+                            We're onboarding <strong>50 new users per week</strong> to maintain quality support. Next batch opens Monday.
+                        </p>
+                    </div>
+
+                    <!-- STEP 3: Action (UNMISTAKABLE CTA) -->
+                    <div class="cta-container">
+                        <a href="#signup" class="btn btn-primary">Get Instant Access (Free)</a>
+                    </div>
+                </div>
+
+                <!-- Supporting proof (moved below the offer) -->
+                <p class="hero-aside">
+                    While your competitors waste hours guessing why their content gets ignored...
+                </p>
+
+                <div class="stats glass-card" style="padding: 1.5rem; border-radius: 12px;">
+                    <div class="stat">
+                        <span class="stat-value">2,847</span>
+                        <span class="stat-label">Creators</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-value">$12.3M</span>
+                        <span class="stat-label">Revenue Recovered</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-value">94%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+
+                <div class="testimonials">
+                    <div class="testimonial glass-card">
+                        <p class="testimonial-quote">"I was stuck at 1.8% conversion on my opt-in page. The Copy Critique System flagged 3 sentences creating 'cognitive friction.' I rewrote them in 20 minutes. Now I'm at 3.8%. That's 180 extra leads per month."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234a5568;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%232d3748;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grad1)'/%3E%3Ccircle cx='50' cy='40' r='18' fill='%23a0aec0'/%3E%3Cellipse cx='50' cy='75' rx='25' ry='20' fill='%23a0aec0'/%3E%3C/svg%3E" alt="Sarah Martinez">
+                            </div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Sarah Martinez</div>
+                                <div class="testimonial-title">Health Coach</div>
+                                <div class="testimonial-result">+112% conversion rate</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial glass-card">
+                        <p class="testimonial-quote">"My sales page was converting at 0.9%. Terrible. The system identified weak benefit statements and missing urgency triggers. After the rewrite: 2.4% conversion. That's an extra $47K annually on the same traffic."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%232d3748;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%231a202c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grad2)'/%3E%3Ccircle cx='50' cy='40' r='18' fill='%23718096'/%3E%3Cellipse cx='50' cy='75' rx='25' ry='20' fill='%23718096'/%3E%3C/svg%3E" alt="Marcus Thompson">
+                            </div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Marcus Thompson</div>
+                                <div class="testimonial-title">SaaS Founder</div>
+                                <div class="testimonial-result">+$47,000 annual revenue</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial glass-card">
+                        <p class="testimonial-quote">"I couldn't figure out why people were bouncing at 60% scroll depth. The critique pinpointed 7 sentences with zero emotional pull. Fixed them. Bounce rate dropped from 68% to 31%. Sales tripled."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234a5568;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23374151;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grad3)'/%3E%3Ccircle cx='50' cy='40' r='18' fill='%2394a3b8'/%3E%3Cellipse cx='50' cy='75' rx='25' ry='20' fill='%2394a3b8'/%3E%3C/svg%3E" alt="Jennifer Lee">
+                            </div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Jennifer Lee</div>
+                                <div class="testimonial-title">Course Creator</div>
+                                <div class="testimonial-result">3.2x revenue increase</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--space-md);">Stop Guessing Why Your Copy Isn't Converting</h2>
+
+            <div style="max-width: 700px; margin: 0 auto; font-size: 1.125rem; display: grid; gap: var(--space-md);">
+                <p>You spend hours writing copy, hit publish, and... nothing happens!</p>
+                <p>Your audience scrolls right past. No clicks. No engagement. No sales.</p>
+                <p>Then you read advice like "make it more compelling" or "add urgency" - but nobody tells you <strong style="color: var(--accent);">which</strong> sentences are killing your conversions.</p>
+                <p style="color: var(--text-primary); font-weight: 600;">The truth? Most copy fails because it is missing specific persuasion elements. It is not about "more personality" or "better hooks", it is about human psychology.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--space-md);">How The Copy Critique System Works</h2>
+            <p style="text-align: center; font-size: 1.125rem; max-width: 800px; margin: 0 auto var(--space-xl);">
+                Most AI tools give you "brain-dead" copy with 0 persuasion power. Here's what we do differently:
+            </p>
+
+            <div class="steps">
+                <div class="step glass-card">
+                    <div class="step-badge">1</div>
+                    <div>
+                        <h3>Tag every sentence with a "persuasion score"</h3>
+                        <ul>
+                            <li>Credibility, data, trust signals</li>
+                            <li>Curiosity, tension, intrigue</li>
+                            <li>Urgency, commands, FOMO</li>
+                            <li>What's in it for the reader</li>
+                            <li>Who the reader becomes after acting</li>
+                            <li>Simplicity, specificity, readability</li>
+                            <li>Drama, contrast, primal appeal</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step glass-card">
+                    <div class="step-badge">2</div>
+                    <div>
+                        <h3>Find gaps in your persuasion flow</h3>
+                        <p>We analyze your copy structure to identify where your message loses momentum, credibility, or emotional impact.</p>
+                    </div>
+                </div>
+
+                <div class="step glass-card">
+                    <div class="step-badge">3</div>
+                    <div>
+                        <h3>Get specific rewrites for only the weak lines</h3>
+                        <p style="margin-bottom: var(--space-sm);">Example transformation:</p>
+                        <div style="padding: var(--space-sm); background: rgba(239, 68, 68, 0.1); border-left: 3px solid #ef4444; border-radius: 4px; margin-bottom: var(--space-sm);">
+                            <strong style="color: #ef4444;">Before:</strong> "Our tool helps improve your copy"
+                        </div>
+                        <div style="padding: var(--space-sm); background: rgba(212, 175, 55, 0.1); border-left: 3px solid var(--accent); border-radius: 4px;">
+                            <strong style="color: var(--accent);">After:</strong> "Fix the 3 sentences costing you $50K/year"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step glass-card">
+                    <div class="step-badge">4</div>
+                    <div>
+                        <h3>Replace your current flow with a proven persuasion arc</h3>
+                        <p>Hook → Clarity → Proof → Benefit → Emotion → Action</p>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 1.125rem; margin-top: var(--space-xl); color: var(--text-primary); font-weight: 600;">
+                The result? Copy that prints money while you sleep.
+            </p>
+
+            <!-- PROOF: Before/After Example -->
+            <div class="proof-example">
+                <p class="example-label">Real Example: Sales Page Headline</p>
+                
+                <div class="comparison-grid">
+                    <div class="before-example">
+                        <span class="example-badge">❌ Before</span>
+                        <p class="example-text">"Our tool helps improve your copywriting and makes it better for marketing purposes."</p>
+                        <div class="example-metrics">
+                            <div class="metric-item">
+                                <div class="metric-label">Conversion</div>
+                                <div class="metric-value">0.8%</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-label">Clarity Score</div>
+                                <div class="metric-value">2/10</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="after-example">
+                        <span class="example-badge">✓ After</span>
+                        <p class="example-text">"Fix the 3 sentences costing you $50K per year in lost revenue—in under 5 minutes."</p>
+                        <div class="example-metrics">
+                            <div class="metric-item">
+                                <div class="metric-label">Conversion</div>
+                                <div class="metric-value">2.4%</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-label">Clarity Score</div>
+                                <div class="metric-value">9/10</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; margin-top: var(--space-lg); color: var(--text-secondary); font-style: italic;">
+                    Notice: Specific outcome, concrete timeframe, clear value proposition
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--space-xl);">What Our "Copy Critique System" Gives You</h2>
+
+            <div class="features">
+                <div class="feature glass-card">
+                    <div class="feature-icon">
+                        <span style="position: relative; z-index: 1; color: var(--accent);">✓</span>
+                    </div>
+                    <h4>Instant Copy Analysis</h4>
+                    <p>Paste any copy → get line-by-line persuasion breakdown.</p>
+                </div>
+
+                <div class="feature glass-card accent-border">
+                    <div class="feature-icon">
+                        <span style="position: relative; z-index: 1;">🎥</span>
+                    </div>
+                    <h4>Loom Walkthrough</h4>
+                    <p>See the Copy Critique System analyze real copy samples step-by-step.</p>
+                </div>
+
+                <div class="feature glass-card">
+                    <div class="feature-icon">
+                        <span style="position: relative; z-index: 1; color: var(--accent);">✓</span>
+                    </div>
+                    <h4>Specific Fix Recommendations</h4>
+                    <p>Know exactly which sentences to rewrite and why.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--space-xl);">Why This Beats "Generic AI Copy Tools"</h2>
+
+            <div class="comparison">
+                <div class="comparison-card glass-card">
+                    <h4>Jasper & Copy.ai</h4>
+                    <ul>
+                        <li>Generic templates</li>
+                        <li>Repetitive output</li>
+                        <li>No strategy</li>
+                        <li>Sounds robotic</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card glass-card">
+                    <h4>ChatGPT</h4>
+                    <ul>
+                        <li>Flat and hollow</li>
+                        <li>Artificial tone</li>
+                        <li>No persuasion structure</li>
+                        <li>Generic advice</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card glass-card winner accent-border">
+                    <span class="winner-badge">You Win</span>
+                    <h4>Copy Critique System</h4>
+                    <ul>
+                        <li>Psychology-based analysis</li>
+                        <li>Strategic improvements</li>
+                        <li>Keeps your unique voice</li>
+                        <li>Fixes persuasion gaps</li>
+                        <li>Copy critique, not generation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 1.25rem; margin-top: var(--space-xl); max-width: 700px; margin-left: auto; margin-right: auto;">
+                The difference? <span style="color: var(--accent); font-weight: 600;">You keep your voice and ideas.</span> You just fix the persuasion gaps.
+            </p>
+
+            <!-- PROOF: Before/After Comparison -->
+            <div class="proof-example">
+                <p class="example-label">See The Difference: Email Subject Line</p>
+                
+                <div class="comparison-grid">
+                    <div class="before-example">
+                        <span class="example-badge">Generic AI</span>
+                        <p class="example-text">"Unlock Your Potential: Amazing Tips Inside! 🚀"</p>
+                        <div class="example-metrics">
+                            <div class="metric-item">
+                                <div class="metric-label">Open Rate</div>
+                                <div class="metric-value">12%</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-label">Issues</div>
+                                <div class="metric-value" style="font-size: 0.875rem; color: #ef4444;">Generic, vague, emoji spam</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="after-example">
+                        <span class="example-badge">Copy Critique</span>
+                        <p class="example-text">"The 3-word phrase killing your conversions (fix in 60 seconds)"</p>
+                        <div class="example-metrics">
+                            <div class="metric-item">
+                                <div class="metric-label">Open Rate</div>
+                                <div class="metric-value">34%</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-label">Why It Works</div>
+                                <div class="metric-value" style="font-size: 0.875rem; color: var(--accent);">Specific, curiosity, urgency</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="signup">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--space-md);">Get Copy Critique System Free (Limited Time)</h2>
+            <p style="text-align: center; font-size: 1.125rem; max-width: 700px; margin: 0 auto var(--space-xl);">
+                We're giving it away for FREE (limited time) to demonstrate the power of strategic copy analysis over generic AI writing tools.
+            </p>
+
+            <form class="form" id="signup-form" aria-label="Email signup form">
+                <input 
+                    type="email" 
+                    class="form-input" 
+                    placeholder="Enter your email" 
+                    required 
+                    aria-label="Email address"
+                    id="email-input"
+                >
+                <button type="submit" class="btn btn-primary">
+                    Get Copy Critique System Free
+                </button>
+            </form>
+
+            <div style="display: flex; justify-content: center; gap: var(--space-lg); flex-wrap: wrap; margin-top: var(--space-lg); font-size: 0.875rem;">
+                <div style="display: flex; align-items: center; gap: var(--space-xs);">
+                    <span style="font-size: 1.25rem;">🔒</span>
+                    <span>Secure signup</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-xs);">
+                    <span style="font-size: 1.25rem;">⚡</span>
+                    <span>Instant access</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-xs);">
+                    <span style="font-size: 1.25rem;">🎯</span>
+                    <span>No credit card</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--space-xl);">Upgrade to the Complete System</h2>
+
+            <div class="upgrade-box glass-card accent-border">
+                <span class="upgrade-badge">VIP Upgrade</span>
+
+                <h3 style="text-align: center; margin-bottom: var(--space-lg);">Ready to build your own high-converting prompts?</h3>
+
+                <div class="price-tag">
+                    <div class="price-label">Bundle A</div>
+                    <div class="price">$27</div>
+                    <div class="price-strike">normally $97</div>
+                </div>
+
+                <p style="text-align: center; font-size: 1.125rem; margin-bottom: var(--space-lg);">
+                    Complete Prompt Engineering Email Course + META Prompting Custom GPT
+                </p>
+
+                <ul style="list-style: none; display: grid; gap: var(--space-sm); max-width: 600px; margin: 0 auto var(--space-lg);">
+                    <li style="padding-left: 2rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--accent); font-weight: bold;">✓</span>
+                        14-day email course teaching advanced prompt engineering
+                    </li>
+                    <li style="padding-left: 2rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--accent); font-weight: bold;">✓</span>
+                        META Prompting GPT that improves ALL your prompts
+                    </li>
+                    <li style="padding-left: 2rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--accent); font-weight: bold;">✓</span>
+                        Turn any vague idea into conversion-focused copy
+                    </li>
+                    <li style="padding-left: 2rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--accent); font-weight: bold;">✓</span>
+                        Never depend on unreliable AI platforms again
+                    </li>
+                </ul>
+
+                <div style="text-align: center;">
+                    <a href="#bundle" class="btn btn-primary">Get Bundle A ($27)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--space-xl);">Frequently Asked Questions</h2>
+
+            <div class="faq">
+                <div class="faq-item glass-card">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+                        <span>Do I need ChatGPT Plus?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer" id="faq-1">
+                        <div class="faq-answer-content">
+                            No. Copy Critique System works with free ChatGPT accounts.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+                        <span>Will this work for any type of copy?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer" id="faq-2">
+                        <div class="faq-answer-content">
+                            Yes. Sales pages, emails, social posts, ads—any persuasive writing.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+                        <span>How is this different from Grammarly?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer" id="faq-3">
+                        <div class="faq-answer-content">
+                            Grammarly fixes grammar. Copy Critique System fixes persuasion psychology.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
+                        <span>What if I'm not a copywriter?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer" id="faq-4">
+                        <div class="faq-answer-content">
+                            Perfect. This teaches you what professional copywriters look for.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Join 500+ creators who stopped guessing about copy and started using psychology-based analysis.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion with proper accessibility
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            question.addEventListener('click', () => {
+                const isOpen = item.classList.contains('active');
+                
+                // Close all other FAQs
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        const otherQuestion = otherItem.querySelector('.faq-question');
+                        otherQuestion.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                // Toggle current FAQ
+                if (!isOpen) {
+                    item.classList.add('active');
+                    question.setAttribute('aria-expanded', 'true');
+                } else {
+                    item.classList.remove('active');
+                    question.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Keyboard support
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    question.click();
+                }
+            });
+        });
+
+        // Form handling with proper feedback
+        const form = document.getElementById('signup-form');
+        const emailInput = document.getElementById('email-input');
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = emailInput.value;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
+            // Add loading state
+            submitBtn.classList.add('loading');
+            submitBtn.textContent = 'Submitting...';
+            
+            // Simulate API call (replace with actual endpoint)
+            setTimeout(() => {
+                submitBtn.classList.remove('loading');
+                submitBtn.textContent = 'Success! Check your email';
+                submitBtn.style.background = 'var(--accent)';
+                emailInput.value = '';
+                
+                // Reset after 3 seconds
+                setTimeout(() => {
+                    submitBtn.textContent = 'Get Copy Critique System Free';
+                    submitBtn.style.background = '';
+                }, 3000);
+            }, 1000);
+        });
+
+        // Liquid metal mouse tracking effect (desktop only)
+        if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+            const glassCards = document.querySelectorAll('.glass-card');
+            
+            glassCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    
+                    card.style.setProperty('--mouse-x', `${x}%`);
+                    card.style.setProperty('--mouse-y', `${y}%`);
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.setProperty('--mouse-x', '50%');
+                    card.style.setProperty('--mouse-y', '50%');
+                });
+            });
+        }
+
+        // Mobile: Smooth scroll behavior
+        if ('scrollBehavior' in document.documentElement.style) {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    e.preventDefault();
+                    const target = document.querySelector(targetId);
+                    
+                    if (target) {
+                        // Offset for sticky CTA on mobile
+                        const isMobile = window.innerWidth <= 768;
+                        const offset = isMobile ? 80 : 0;
+                        const targetPosition = target.offsetTop - offset;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Touch feedback for interactive elements
+        if ('ontouchstart' in window) {
+            const touchElements = document.querySelectorAll('.btn, .step-item, .faq-question, .glass-card');
+            
+            touchElements.forEach(element => {
+                element.addEventListener('touchstart', function() {
+                    this.style.opacity = '0.9';
+                }, { passive: true });
+                
+                element.addEventListener('touchend', function() {
+                    setTimeout(() => {
+                        this.style.opacity = '1';
+                    }, 150);
+                }, { passive: true });
+            });
+        }
+
+        // Viewport height fix for mobile browsers
+        function setVH() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        setVH();
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', setVH);
+    </script>
+</body>
+</html>
